@@ -41,23 +41,25 @@ public class CONCharacter : CONEntity
     public override void Update()
     {
         base.Update();
-        timer += Time.deltaTime;
+        
 
-        if ( timer > attackDelay)
-        {
-            Attack();
-        }
+        Attack();
 
 
     }
 
     public override void Attack()
     {
-        if(MGGame.Instance.enemyConList.Count > 0)
+        
+        if (MGGame.Instance.enemyConList.Count > 0 && timer > attackDelay)
         {
             timer = 0;
             print("공격!");
 
+        }
+        else
+        {
+            timer += Time.deltaTime * MGTimeScale.Instance.TimeScale;
         }
         base.Attack();
     }
