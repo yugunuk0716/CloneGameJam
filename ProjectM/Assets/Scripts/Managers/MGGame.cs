@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MGGame : MonoBehaviour
+public class MGGame : MonoSingleton<MGGame>
 {
     // public MGTeam _gTeamManager;
     // public MGStage _gStageManager;
@@ -10,7 +10,7 @@ public class MGGame : MonoBehaviour
     // public MGHero.MGHero _gHeroManager;
 
     List<CONEntity> heroConList = new List<CONEntity>();
-
+    public List<CONEntity> enemyConList = new List<CONEntity>();
     void Awake()
     {
         GameSceneClass.gMGGame = this;
@@ -39,7 +39,7 @@ public class MGGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            CONEntity heroCon = GameSceneClass.gMGPool.CreateObj(ePrefabs.HeroGirl, Random.insideUnitCircle);
+            CONEntity heroCon = GameSceneClass.gMGPool.CreateObj(ePrefabs.HeroMan, Random.insideUnitCircle);
             heroConList.Add(heroCon);
         }
 

@@ -19,6 +19,9 @@ public enum ePrefabs
     HEROS = 1000,
     HeroMan,
     HeroGirl,
+
+    ENEMY = 1500,
+    EnemyZombie,
     MANAGERS = 2000,
     MGPool,
     MGGame,
