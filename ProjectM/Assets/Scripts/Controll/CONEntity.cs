@@ -95,4 +95,8 @@ public class CONEntity : MonoBehaviour
 
         myTrm.position = new Vector3(myTrm.position.x + myVelocity.x * Time.deltaTime, nextYpos, myTrm.position.z);
     }
+    public virtual void Attack()
+    {
+
+    }
 }

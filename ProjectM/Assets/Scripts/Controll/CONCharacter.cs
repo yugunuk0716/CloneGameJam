@@ -9,6 +9,10 @@ public class CONCharacter : CONEntity
     // 고유 캐릭터 스탯 데이터
     // 애니메이션 정보
 
+    public float attackDelay;
+    public float timer;
+
+
     public override void Awake()
     {
         base.Awake();
@@ -33,5 +37,31 @@ public class CONCharacter : CONEntity
     {
         base.firstUpdate();
     }
+
+    public override void Update()
+    {
+        base.Update();
+        timer += Time.deltaTime;
+
+        if ( timer > attackDelay)
+        {
+            Attack();
+        }
+
+
+    }
+
+    public override void Attack()
+    {
+        if(MGGame.Instance.enemyConList.Count > 0)
+        {
+            timer = 0;
+            print("공격!");
+
+        }
+        base.Attack();
+    }
+
+
 
 }
