@@ -59,7 +59,9 @@ public class MGScene : MonoBehaviour
             rootCvs = createdGo.GetComponent<Canvas>();
             rootTrm = createdGo.transform;
         }
-      
+        
+
+
         addUiTrm = null;
 
         InitFirstScene();    
@@ -126,7 +128,8 @@ public class MGScene : MonoBehaviour
         addUiTrm.localPosition = Vector3.zero;
         addUiTrm.localScale = new Vector3(1, 1, 1);
 
-        if(inScene >= eSceneName.Loading)
+
+        if (inScene >= eSceneName.Loading)
         {
             RectTransform rts = go.GetComponent<RectTransform>();
             rts.offsetMax = new Vector2(0, 0);
@@ -147,6 +150,10 @@ public class MGScene : MonoBehaviour
         {
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGPool]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGGame]);
+            GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGTimeScale]);
+            GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UITimeScale]);
+            go.transform.SetParent(rootTrm);
+
         }
 
         // if (curScene == eSceneName.Game)

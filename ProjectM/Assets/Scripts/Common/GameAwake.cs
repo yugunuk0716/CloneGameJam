@@ -15,6 +15,8 @@ public class GameAwake : MonoBehaviour
 
     private string tempStr;
 
+    private readonly char _folderSlash = '/';
+
     private void Awake()
     {
         if (Instance == null)
@@ -72,21 +74,22 @@ public class GameAwake : MonoBehaviour
 
         files = Resources.LoadAll(_sb.ToString());
         setPrefabDic(files);
+        print(files);
 
         // 폴더별로 분리하여 저장했을 때는 개별로 불러옴
-        // // ui
-        // _sb.Remove(0, _sb.Length);
-		// _sb.AppendFormat("Prefabs{0}UI{0}", _folderSlash);
+        // ui
+        _sb.Remove(0, _sb.Length);
+        _sb.AppendFormat("Prefabs{0}UI{0}", _folderSlash);
 
-		// files = Resources.LoadAll(_sb.ToString());
-		// setPrefabDic(files);
+        files = Resources.LoadAll(_sb.ToString());
+        setPrefabDic(files);
 
-        // // game , Bg
-        // _sb.Remove(0, _sb.Length);
-        // _sb.AppendFormat("Prefabs{0}Game{0}", _folderSlash);
+        // game , Bg
+        _sb.Remove(0, _sb.Length);
+        _sb.AppendFormat("Prefabs{0}Game{0}", _folderSlash);
 
-		// files = Resources.LoadAll(_sb.ToString());
-        // setPrefabDic(files);
+        files = Resources.LoadAll(_sb.ToString());
+        setPrefabDic(files);
     }
 
     void LoadSpritesDic()
@@ -107,6 +110,7 @@ public class GameAwake : MonoBehaviour
         for (int i = 0; i < files.Length; i++)
         {
             GameObject outObj;
+            print(files[i]);
 
             tempStr = getFileName(files[i].ToString());
 

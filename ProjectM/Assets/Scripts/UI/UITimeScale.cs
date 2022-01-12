@@ -21,6 +21,8 @@ public class UITimeScale : MonoBehaviour
         btn = GetComponent<Button>();
         text = GetComponentInChildren<Text>();
 
+        GetComponent<RectTransform>().localPosition = new Vector3(0, 0);
+
         btn.onClick.AddListener(() => {
             MGTimeScale.Instance.SetTimeScale(isPressed ? NORMAL : DOUBLE);
             text.text = isPressed ? NORMAL_TEXT : DOUBLE_TEXT;
