@@ -48,7 +48,7 @@ public class Arrow : MonoBehaviour
         t += Time.deltaTime * speed;
 
         if(t >= 1.0f) {
-
+            gameObject.SetActive(false);
         }
     }
 }
