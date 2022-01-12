@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MGGame : MonoSingleton<MGGame>
 {
@@ -10,7 +11,13 @@ public class MGGame : MonoSingleton<MGGame>
     // public MGHero.MGHero _gHeroManager;
 
     List<CONEntity> heroConList = new List<CONEntity>();
-    public List<CONEntity> enemyConList = new List<CONEntity>();
+    public List<CONEnemy> enemyConList = new List<CONEnemy>();
+
+    public List<Image> enemyHpBars = new List<Image>();
+
+    public Camera mainCam;
+
+    //public Image hpPrefab;
     void Awake()
     {
         GameSceneClass.gMGGame = this;
@@ -29,6 +36,11 @@ public class MGGame : MonoSingleton<MGGame>
         heroConList.Clear();
     }
 
+    private void Start()
+    {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();    
+    }
+    
     void OnEnable()
     {
         // GamePlayData.init();
@@ -41,6 +53,11 @@ public class MGGame : MonoSingleton<MGGame>
         {
             CONEntity heroCon = GameSceneClass.gMGPool.CreateObj(ePrefabs.HeroMan, Random.insideUnitCircle);
             heroConList.Add(heroCon);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            MGScene.Instance.SpawEnemy();
         }
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -74,5 +91,22 @@ public class MGGame : MonoSingleton<MGGame>
     void LateUpdate()
     {
         // GameSceneClass._gColManager.LateUpdate();
+        HpBar();
     }
+
+    public void HpBar()
+    {
+        if (enemyHpBars.Count != 0 && enemyConList.Count != 0)
+        {
+            for (int i = 0; i < enemyHpBars.Count; i++)
+            {
+                RectTransform rect = enemyHpBars[i].GetComponent<RectTransform>();
+                enemyHpBars[i].transform.position = mainCam.WorldToScreenPoint(enemyConList[i].gameObject.transform.position + new Vector3(0, -1f, 0));
+                rect.localScale = new Vector3(enemyConList[i].HpPercent(), 1, 1);
+            }
+        }
+
+
+    }
+
 }
