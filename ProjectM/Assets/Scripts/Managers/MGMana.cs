@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MGMana : MonoSingleton<MGMana>
 {
-    public event System.Action OnManaChanged;
+    public event System.Action<int> OnManaChanged;
 
     [SerializeField] private float mamaIncreasementTime = 2.0f;
     private float lastManaIncreaseMent;
@@ -17,10 +17,15 @@ public class MGMana : MonoSingleton<MGMana>
         }
     }
 
+    private void Awake()
+    {
+        OnManaChanged += (e) => { };
+    }
+
     private void Update()
     {
         if(Time.time >= mamaIncreasementTime + lastManaIncreaseMent) {
-            ++Mana;
+            AddMana(1);
         }
     }
 
@@ -33,10 +38,13 @@ public class MGMana : MonoSingleton<MGMana>
     {
         if(!CanUseMana(amount)) return;
         Mana -= amount;
+
+        OnManaChanged(Mana);
     }
 
     public void AddMana(int amount)
     {
         Mana += amount;
+        OnManaChanged(Mana);
     }
 }
