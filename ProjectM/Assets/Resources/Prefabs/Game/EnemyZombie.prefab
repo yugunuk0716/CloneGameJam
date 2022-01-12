@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3690241567469177899}
   - component: {fileID: 3810624056578307688}
   - component: {fileID: 5847576901208378094}
-  - component: {fileID: 1984420252397357687}
+  - component: {fileID: -2908411506148353532}
   m_Layer: 0
   m_Name: EnemyZombie
   m_TagString: Untagged
@@ -97,7 +97,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1984420252397357687
+--- !u!114 &-2908411506148353532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,11 +106,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126957719968890159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016ad9a061fca4119a938ba53cca3243, type: 3}
+  m_Script: {fileID: 11500000, guid: d3713d25cd123ed48be35bc094ecc309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myKind: 1501
   myTrm: {fileID: 0}
-  myVelocity: {x: 0, y: 0, z: 0}
-  attackDelay: 3
+  myVelocity: {x: -1, y: 0, z: 0}
+  attackDelay: 0
   timer: 0
