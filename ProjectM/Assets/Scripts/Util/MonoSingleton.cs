@@ -15,7 +15,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
                         Log.Debug.Log($"{_instance.GetType()} Found more than one.", Log.LogLevel.Error);
                     }
                 } else {
-                    Log.Debug.Log($"{_instance.GetType()} Does not exist.", Log.LogLevel.Fatal);
+                    //Log.Debug.Log($"{_instance.GetType()} Does not exist.", Log.LogLevel.Fatal);
                 }
 
             }

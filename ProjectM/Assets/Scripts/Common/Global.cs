@@ -41,6 +41,7 @@ public enum ePrefabs
     UITimeScale,
     UIHpBar,
     UIManaPlusButton,
+    WaveText,
 
     ETC = 4000,
     Background,

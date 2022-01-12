@@ -39,6 +39,9 @@ public class MGScene : MonoBehaviour
 
     public eSceneName curScene, prevScene;
 
+    public GameObject waveObj;
+
+
     void Awake()
     {
         if (_instance == null)
@@ -171,6 +174,8 @@ public class MGScene : MonoBehaviour
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.Archor]).transform.position = new Vector2(-17.5f, 4.5f);
             GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UITimeScale]);
             go.transform.SetParent(rootTrm);
+            waveObj = GameObject.Instantiate(Global.prefabsDic[ePrefabs.WaveText]);
+            waveObj.transform.SetParent(rootTrm);
 
         }
 

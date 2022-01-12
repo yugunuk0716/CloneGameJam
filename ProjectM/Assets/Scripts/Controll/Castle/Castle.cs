@@ -14,6 +14,8 @@ public class Castle : MonoBehaviour
     /// </summary>
     public event System.Action<int> OnCastleDamaged;
 
+    public RectTransform hpBarTrm;
+
     [SerializeField] private int defaultHP = 100;
     public int HP { get; private set; }
 
@@ -24,8 +26,15 @@ public class Castle : MonoBehaviour
         HP = defaultHP;
     }
 
+    private void Start()
+    {
+        hpBarTrm.gameObject.SetActive(false);
+    }
+
     public void DecreaseHP(int damage)
     {
+        hpBarTrm.transform.SetParent(MGScene.Instance.towerTrm);
+        hpBarTrm.gameObject.SetActive(true);
         OnCastleDamaged(damage);
 
         HP -= damage;
@@ -33,5 +42,10 @@ public class Castle : MonoBehaviour
         if(HP <= 0) {
             OnCastleDead();
         }
+
+        hpBarTrm.localScale = new Vector3((float)HP / (float)defaultHP, 1, 1);
     }
+
+
+
 }
