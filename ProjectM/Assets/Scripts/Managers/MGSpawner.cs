@@ -15,13 +15,13 @@ public class MGSpawner : MonoBehaviour
         spawnPos = GameObject.Find("SpawnPoint").transform;
     }
 
-    void Update()
-    {
-        if(Time.time < lastSpawnTime + spanwDelay) return;
-        lastSpawnTime = Time.time;
+    // void Update()
+    // {
+    //     if(Time.time < lastSpawnTime + spanwDelay) return;
+    //     lastSpawnTime = Time.time;
 
-        spawnPos.position = new Vector2(spawnPos.position.x, Random.Range(spawnPos.position.y - randomSpawnAmount, spawnPos.position.y + randomSpawnAmount));
+    //     spawnPos.position = new Vector2(spawnPos.position.x, Random.Range(spawnPos.position.y - randomSpawnAmount, spawnPos.position.y + randomSpawnAmount));
         
-        MGGame.Instance.SpawEnemy(spawnPos.position, EnemyType.NORMAL);
-    }
+    //     MGGame.Instance.SpawEnemy(spawnPos.position, EnemyType.NORMAL);
+    // }
 }
