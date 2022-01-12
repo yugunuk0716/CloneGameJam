@@ -137,14 +137,7 @@ public class MGScene : MonoBehaviour
         }
     }
 
-    public void SpawEnemy()
-    {
-        GameObject enemy = GameObject.Instantiate(Global.prefabsDic[ePrefabs.EnemyZombie]);
-        GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UIHpBar]);
-        go.transform.SetParent(rootTrm);
-        MGGame.Instance.enemyHpBars.Add(go.GetComponent<Image>());
-        MGGame.Instance.enemyConList.Add(enemy.GetComponent<CONEnemy>());
-    }
+    
 
     // 로딩이 끝났을 때 처리해주는 함수
     public void LoadingDone()
@@ -160,6 +153,7 @@ public class MGScene : MonoBehaviour
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGPool]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGGame]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGTimeScale]);
+            GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGPool]);
             GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UITimeScale]);
             go.transform.SetParent(rootTrm);
 

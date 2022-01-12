@@ -19,6 +19,8 @@ public enum ePrefabs
     HEROS = 1000,
     HeroMan,
     HeroGirl,
+    Archor,
+    arrow,
 
     ENEMY = 1500,
     EnemyZombie,

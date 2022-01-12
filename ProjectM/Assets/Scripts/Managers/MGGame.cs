@@ -46,6 +46,19 @@ public class MGGame : MonoSingleton<MGGame>
         // GamePlayData.init();
         // MGGameStatistics.instance.initData();
     }
+    public void SpawEnemy(Vector2 position, EnemyType type)
+    {
+        GameObject enemy = MGEnemyPool.Instance.Get(type);
+        MGGame.Instance.enemyConList.Add(enemy.GetComponent<CONEnemy>());
+        CONEntity hpBar =  GameSceneClass.gMGPool.CreateObj(ePrefabs.UIHpBar, position);
+        hpBar.transform.SetParent(MGScene.Instance.rootTrm);
+        MGGame.Instance.enemyHpBars.Add(hpBar.GetComponent<Image>());
+
+        //GameObject enemy = GameObject.Instantiate(Global.prefabsDic[ePrefabs.EnemyZombie]);
+        //GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UIHpBar]);
+
+    }
+
 
     void Update()
     {
@@ -57,7 +70,7 @@ public class MGGame : MonoSingleton<MGGame>
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            MGScene.Instance.SpawEnemy();
+            SpawEnemy(Vector2.zero, EnemyType.NORMAL);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -100,9 +113,16 @@ public class MGGame : MonoSingleton<MGGame>
         {
             for (int i = 0; i < enemyHpBars.Count; i++)
             {
-                RectTransform rect = enemyHpBars[i].GetComponent<RectTransform>();
-                enemyHpBars[i].transform.position = mainCam.WorldToScreenPoint(enemyConList[i].gameObject.transform.position + new Vector3(0, -1f, 0));
-                rect.localScale = new Vector3(enemyConList[i].HpPercent(), 1, 1);
+                if (enemyConList[i].HpPercent() == 1)
+                {
+                    enemyHpBars[i].gameObject.SetActive(false);
+                }
+                else
+                {
+                    RectTransform rect = enemyHpBars[i].GetComponent<RectTransform>();
+                    enemyHpBars[i].transform.position = mainCam.WorldToScreenPoint(enemyConList[i].gameObject.transform.position + new Vector3(0, -1f, 0));
+                    rect.localScale = new Vector3(enemyConList[i].HpPercent(), 1, 1);
+                }
             }
         }
 

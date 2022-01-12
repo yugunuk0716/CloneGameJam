@@ -111,6 +111,7 @@ public class MGPool : MonoBehaviour
 
         return createdEn;
     }
+    
 
     public CONEntity CreateObjAsChild(ePrefabs inObj, Vector3 inPos , Transform inParent)
     {
@@ -152,4 +153,7 @@ public class MGPool : MonoBehaviour
     {
         inEn.SetActive(false);
     }
+
+
+
 }
