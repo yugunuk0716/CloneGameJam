@@ -33,6 +33,7 @@ public enum ePrefabs
     MGEnemyPool,
     MGMoney,
     MGSpawn,
+    MGMana,
     UI = 3000,
     UIRoot,
     UIRootLoading,
@@ -40,6 +41,7 @@ public enum ePrefabs
     UIRootGame,
     UITimeScale,
     UIHpBar,
+    UIManaPlusButton,
 
     ETC = 4000,
     Background,
