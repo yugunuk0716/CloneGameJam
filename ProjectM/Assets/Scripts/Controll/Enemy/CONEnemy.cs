@@ -9,9 +9,7 @@ public class CONEnemy : CONCharacter, IMoveManagement
 
     public int maxHp;
 
-    public int CurrentDestIdx => throw new System.NotImplementedException();
-
-    public float DefaultSpeed => throw new System.NotImplementedException();
+    public int CurrentDestIdx => 1;
 
     public override void Awake()
     {
@@ -57,10 +55,5 @@ public class CONEnemy : CONCharacter, IMoveManagement
     public float GetRemainDistance()
     {
         return Vector2.Distance(this.transform.position, MGScene.Instance.towerTrm.position);
-    }
-
-    public void SetSpeed(float multipy, float duration)
-    {
-        throw new System.NotImplementedException();
     }
 }
