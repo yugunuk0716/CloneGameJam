@@ -24,7 +24,7 @@ public class Castle : MonoBehaviour
         HP = defaultHP;
     }
 
-    private void DecreaseHP(int damage)
+    public void DecreaseHP(int damage)
     {
         OnCastleDamaged(damage);
 
