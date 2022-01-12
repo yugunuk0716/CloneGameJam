@@ -34,7 +34,9 @@ public class MGScene : MonoBehaviour
     public Canvas rootCvs;
     public Transform rootTrm;
     private Transform addUiTrm;
-    
+
+    public Transform towerTrm;
+
     public eSceneName curScene, prevScene;
 
     void Awake()
@@ -65,6 +67,11 @@ public class MGScene : MonoBehaviour
         addUiTrm = null;
 
         InitFirstScene();    
+    }
+
+    private void Start()
+    {
+        towerTrm = GameObject.Find("tower").transform;
     }
 
     // MGScene이 처음 실행될 때 타이틀화면부터 시작

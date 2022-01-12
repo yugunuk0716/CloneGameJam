@@ -56,7 +56,7 @@ public class CONEnemy : CONCharacter, IMoveManagement
 
     public float GetRemainDistance()
     {
-        throw new System.NotImplementedException();
+        return Vector2.Distance(this.transform.position, MGScene.Instance.towerTrm.position);
     }
 
     public void SetSpeed(float multipy, float duration)
