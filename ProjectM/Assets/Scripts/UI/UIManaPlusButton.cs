@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManaPlusButton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int mamaIncreasementAmount = 1;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GetComponent<Button>().onClick.AddListener(() => {
+            MGMana.Instance.AddMana(mamaIncreasementAmount);
+            Destroy(gameObject);
+        });
     }
 }
