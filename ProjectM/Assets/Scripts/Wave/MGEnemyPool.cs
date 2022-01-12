@@ -8,8 +8,8 @@ public class MGEnemyPool : MonoSingleton<MGEnemyPool>
     [Header("적 프리팹. 넣는 순서는 EnemyType 과 같아야 함")]
     [SerializeField] private GameObject[] enemyPrefabs = new GameObject[(int)EnemyType.END_OF_ENUM];
 
-    [Header("AI 가 목적지로 가질 포지션")]
-    public List<Transform> enemyDestList = new List<Transform>();
+    // [Header("AI 가 목적지로 가질 포지션")]
+    // public List<Transform> enemyDestList = new List<Transform>();
 
     private Dictionary<EnemyType, List<GameObject>> enemyPool = new Dictionary<EnemyType, List<GameObject>>();
 
@@ -55,7 +55,7 @@ public class MGEnemyPool : MonoSingleton<MGEnemyPool>
     /// <param name="type">타입</param>
     private GameObject Create(EnemyType type)
     {
-        GameObject temp = Instantiate(enemyPrefabs[(int)type], enemyDestList[0].position, Quaternion.identity, transform);
+        GameObject temp = Instantiate(enemyPrefabs[(int)type], transform.position, Quaternion.identity, transform);
         // temp.GetComponent<AIMove>().SetDest(enemyDestList); FIXME:
         temp.SetActive(false);
         return temp;
