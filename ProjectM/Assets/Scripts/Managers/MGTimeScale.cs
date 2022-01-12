@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MGTimeScale :  MonoSingleton<MGTimeScale>
 {
+    /// <summary>
+    /// TimeScale 변경 시 호출됨 (float = TimeScale)
+    /// </summary>
+    public event System.Action<float> OnTimeScaleUpdated;
+
 
     private float _timeScale = 1.0f;
     public float TimeScale
@@ -11,7 +16,12 @@ public class MGTimeScale :  MonoSingleton<MGTimeScale>
         get { return _timeScale; }
     }
 
-    
+    private void Awake()
+    {
+        OnTimeScaleUpdated += (a) => { };
+    }
+
+
     /// <summary>
     /// 시간 배속을 설정합니다,
     /// </summary>
@@ -23,5 +33,7 @@ public class MGTimeScale :  MonoSingleton<MGTimeScale>
         }
 
         _timeScale = scale;
+
+        OnTimeScaleUpdated(TimeScale);
     }
 }
