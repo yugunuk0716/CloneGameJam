@@ -74,7 +74,6 @@ public class GameAwake : MonoBehaviour
 
         files = Resources.LoadAll(_sb.ToString());
         setPrefabDic(files);
-        print(files);
 
         // 폴더별로 분리하여 저장했을 때는 개별로 불러옴
         // ui
@@ -110,7 +109,6 @@ public class GameAwake : MonoBehaviour
         for (int i = 0; i < files.Length; i++)
         {
             GameObject outObj;
-            print(files[i]);
 
             tempStr = getFileName(files[i].ToString());
 

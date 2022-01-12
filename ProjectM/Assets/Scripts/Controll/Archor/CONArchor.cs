@@ -21,11 +21,14 @@ public class CONArchor : CONCharacter
         GameObject target = MGActiveEnemy.Instance.GetEnemy(MGActiveEnemy.SearchType.FRONT);
 
 
-        Vector2 p1 = this.transform.position;
-        Vector2 p2 = this.transform.position + (target.transform.position - this.transform.position) * 0.5f;
-                p2.y += 3.0f;
-        Vector2 p3 = target.transform.position;
+        if (target != null)
+        {
+            Vector2 p1 = this.transform.position;
+            Vector2 p2 = this.transform.position + (target.transform.position - this.transform.position) * 0.5f;
+            p2.y += 3.0f;
+            Vector2 p3 = target.transform.position;
 
-        Instantiate(arrow).GetComponent<Arrow>().Init(this.gameObject, target, arrowSpeed);
+            Instantiate(arrow).GetComponent<Arrow>().Init(this.gameObject, target, arrowSpeed);
+        }
     }
 }

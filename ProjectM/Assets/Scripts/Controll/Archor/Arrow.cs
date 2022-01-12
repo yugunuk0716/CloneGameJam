@@ -18,6 +18,11 @@ public class Arrow : MonoBehaviour
 
     bool calculate = false;
 
+    private void Start()
+    {
+        print("»ý¼º");
+    }
+
     public void Init(GameObject shooter, GameObject target, float speed)
     {
         this.shooter = shooter;

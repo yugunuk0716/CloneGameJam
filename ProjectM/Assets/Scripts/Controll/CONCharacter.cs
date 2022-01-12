@@ -51,21 +51,23 @@ public class CONCharacter : CONEntity
     public override void Attack()
     {
         
-        if (MGGame.Instance.enemyConList.Count > 0 && timer > attackDelay)
+        if(MGGame.Instance != null)
         {
-            timer = 0;
-            print("공격!");
-            OnAttack();
+            if (MGGame.Instance.enemyConList.Count > 0 && timer > attackDelay)
+            {
+                timer = 0;
+                OnAttack();
+            }
+            else
+            {
+                timer += Time.deltaTime * MGTimeScale.Instance.TimeScale;
+            }
+            base.Attack();
         }
-        else
-        {
-            timer += Time.deltaTime * MGTimeScale.Instance.TimeScale;
-        }
-        base.Attack();
     }
 
     /// <summary>
     /// 공격 시 호출됨
     /// </summary>
-    public virtual void OnAttack() { }
+    public virtual void OnAttack() { print("공격!"); }
 }

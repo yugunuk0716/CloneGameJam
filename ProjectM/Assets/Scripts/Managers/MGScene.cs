@@ -160,6 +160,8 @@ public class MGScene : MonoBehaviour
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGMoney]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGEnemyPool]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGActiveEnemy]);
+            GameObject.Instantiate(Global.prefabsDic[ePrefabs.HeroMan]).transform.position = new Vector2(-12,0);
+            GameObject.Instantiate(Global.prefabsDic[ePrefabs.Archor]).transform.position = new Vector2(-17.5f, 4.5f);
             GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UITimeScale]);
             go.transform.SetParent(rootTrm);
 

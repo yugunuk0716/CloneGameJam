@@ -40,6 +40,10 @@ public class CONEnemy : CONCharacter
     public void OnDamaged(int damage)
     {
         curHp -= damage;
+        if(curHp <= 0)
+        {
+            MGActiveEnemy.Instance.Remove(this.gameObject);
+        }
     }
 
     public float HpPercent()

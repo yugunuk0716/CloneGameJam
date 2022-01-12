@@ -48,15 +48,16 @@ public class MGGame : MonoSingleton<MGGame>
     }
     public void SpawEnemy(Vector2 position, EnemyType type)
     {
-        GameObject enemy = GameObject.Instantiate(Global.prefabsDic[ePrefabs.EnemyZombie]);
-        GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UIHpBar]);
+        //GameObject enemy = GameObject.Instantiate(Global.prefabsDic[ePrefabs.EnemyZombie]);
+        //enemy.
+        GameObject enemy = MGEnemyPool.Instance.Get(type);
+        enemy.transform.position = position;
 
 
-        //GameObject enemy = MGEnemyPool.Instance.Get(type);
-        MGGame.Instance.enemyConList.Add(enemy.GetComponent<CONEnemy>());
-        //ONEntity go =  GameSceneClass.gMGPool.CreateObj(ePrefabs.UIHpBar, position);
+        enemyConList.Add(enemy.GetComponent<CONEnemy>());
+        CONEntity go =  GameSceneClass.gMGPool.CreateObj(ePrefabs.UIHpBar, position);
         go.transform.SetParent(MGScene.Instance.rootTrm);
-        MGGame.Instance.enemyHpBars.Add(go.GetComponent<Image>());
+        enemyHpBars.Add(go.GetComponent<Image>());
 
 
     }
