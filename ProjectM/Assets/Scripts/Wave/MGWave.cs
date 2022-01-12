@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// FIXME: MGWave => MGEnemyPool => MGActiveEnemy => MGWave
+// Circular dependencies
+
 public class MGWave : MonoSingleton<MGWave>
 {
     [Header("웨이브 파일 이름")]
