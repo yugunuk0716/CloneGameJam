@@ -154,6 +154,7 @@ public class MGScene : MonoBehaviour
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGGame]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGTimeScale]);
             GameObject.Instantiate(Global.prefabsDic[ePrefabs.MGPool]);
+            GameObject.Instantiate(Global.prefabsDic[ePrefabs.Background]);
             GameObject go = GameObject.Instantiate(Global.prefabsDic[ePrefabs.UITimeScale]);
             go.transform.SetParent(rootTrm);
 

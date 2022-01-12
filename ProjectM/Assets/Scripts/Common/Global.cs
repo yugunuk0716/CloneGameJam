@@ -39,6 +39,10 @@ public enum ePrefabs
     UIRootGame,
     UITimeScale,
     UIHpBar,
+
+    ETC = 4000,
+    Background,
+
 }
 
 public enum eSceneName
