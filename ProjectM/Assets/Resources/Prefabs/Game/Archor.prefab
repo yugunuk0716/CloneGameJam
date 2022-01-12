@@ -95,8 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7a2f52d4c2968f38fbe10acdebbc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myKind: 0
+  myTrm: {fileID: 0}
+  myVelocity: {x: 0, y: 0, z: 0}
+  attackDelay: 0
+  timer: 0
   arrowSpeed: 1
-  target: {fileID: 0}
-  arrow: {fileID: 0}
-  lf: 0
-  del: 2
+  arrow: {fileID: 7197583572439379524, guid: 4e5bd013bf0c03c0aaf331404fe4a801, type: 3}
