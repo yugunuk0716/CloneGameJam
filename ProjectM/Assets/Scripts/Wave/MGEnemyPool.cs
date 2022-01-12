@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPoolManager : MonoSingleton<EnemyPoolManager>
+public class MGEnemyPool : MonoSingleton<MGEnemyPool>
 {
 
     [Header("적 프리팹. 넣는 순서는 EnemyType 과 같아야 함")]
@@ -87,7 +87,7 @@ public class EnemyPoolManager : MonoSingleton<EnemyPoolManager>
     /// <param name="type">스폰할 적의 타입</param>
     public void Spawn(EnemyType type)
     {
-        ActiveEnemyManager.Instance.Spawn(Get(type));
+        MGActiveEnemy.Instance.Spawn(Get(type));
     }
 
 }

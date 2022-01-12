@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveEnemyManager : MonoSingleton<ActiveEnemyManager>
+public class MGActiveEnemy : MonoSingleton<MGActiveEnemy>
 {
     /// <summary>
     /// 적 스폰시 적 오브젝트를 인자로 전달하면서 호출됨
@@ -135,17 +135,17 @@ public class ActiveEnemyManager : MonoSingleton<ActiveEnemyManager>
     {
         if(activeEnemyList.Count == 0)
         {
-            if(WaveManager.Instance.NomoreWaveLeft && !WaveManager.Instance.IsSpawning) {
+            if(MGWave.Instance.NomoreWaveLeft && !MGWave.Instance.IsSpawning) {
 
-                WaveManager.Instance.SetStageCompleted();
+                MGWave.Instance.SetStageCompleted();
             }
 
-            if(WaveManager.Instance.IsSpawnFinished && !WaveManager.Instance.IsSpawning) {
-                Debug.LogWarning("SpawnFinished: " + WaveManager.Instance.IsSpawnFinished);
-                Debug.LogWarning("IsSpawning: " + WaveManager.Instance.IsSpawning);
+            if(MGWave.Instance.IsSpawnFinished && !MGWave.Instance.IsSpawning) {
+                Debug.LogWarning("SpawnFinished: " + MGWave.Instance.IsSpawnFinished);
+                Debug.LogWarning("IsSpawning: " + MGWave.Instance.IsSpawning);
                 Debug.LogWarning("activeEnemyList: " + activeEnemyList.Count);
                 Debug.LogWarning("");
-                WaveManager.Instance.SetWaveCompleted();
+                MGWave.Instance.SetWaveCompleted();
             }
         }
     }

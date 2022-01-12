@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManager : MonoSingleton<WaveManager>
+public class MGWave : MonoSingleton<MGWave>
 {
     [Header("웨이브 파일 이름")]
     [SerializeField] private string waveName = "wave";
@@ -158,7 +158,7 @@ public class WaveManager : MonoSingleton<WaveManager>
         for (int i = 0; i < spawnData.spawnList.Count; ++i)
         {
             yield return wait;
-            EnemyPoolManager.Instance.Spawn(spawnData.spawnList[i]);
+            MGEnemyPool.Instance.Spawn(spawnData.spawnList[i]);
         }
 
         IsSpawning = false;
