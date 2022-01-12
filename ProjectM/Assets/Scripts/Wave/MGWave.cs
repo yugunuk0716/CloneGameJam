@@ -59,9 +59,9 @@ public class MGWave : MonoSingleton<MGWave>
 
     private void Awake()
     {
-        Debug.Log(Application.persistentDataPath);
         while(waveIndex < waveCount)
         {
+            Debug.Log(Path.Combine(Directory.GetCurrentDirectory(), "Waves"));
             string waveJson = JsonFileManager.Read(waveName + ++waveIndex, Path.Combine(Directory.GetCurrentDirectory(), "Waves"), true);
             // string waveJson = JsonFileManager.Read(waveName + ++waveIndex, Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Resources", "Waves"), true);
             // string waveJson = JsonFileManager.Read(waveName + ++waveIndex, "waves");
@@ -101,7 +101,7 @@ public class MGWave : MonoSingleton<MGWave>
 
     private void Update()
     {
-        if (Input.GetKeyDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             StartNewWave();
         }

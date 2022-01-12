@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveName: wave
-  waveCount: 0
+  waveCount: 20
   difficulty: 1
