@@ -10,6 +10,11 @@ public class MGSpawner : MonoBehaviour
     float lastSpawnTime = float.MinValue;
     float spanwDelay = 1.0f;
 
+    private void Start()
+    {
+        spawnPos = GameObject.Find("SpawnPoint").transform;
+    }
+
     void Update()
     {
         if(Time.time < lastSpawnTime + spanwDelay) return;
