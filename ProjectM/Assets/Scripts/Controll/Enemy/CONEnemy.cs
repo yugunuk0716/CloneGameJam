@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CONEnemy : CONCharacter
+public class CONEnemy : CONCharacter, IMoveManagement
 {
     public int curHp;
 
     public int maxHp;
 
+    public int CurrentDestIdx => throw new System.NotImplementedException();
+
+    public float DefaultSpeed => throw new System.NotImplementedException();
 
     public override void Awake()
     {
@@ -49,5 +52,15 @@ public class CONEnemy : CONCharacter
     public float HpPercent()
     {
         return (float)curHp  / (float)maxHp;
+    }
+
+    public float GetRemainDistance()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SetSpeed(float multipy, float duration)
+    {
+        throw new System.NotImplementedException();
     }
 }
