@@ -32,6 +32,7 @@ public enum ePrefabs
     MGActiveEnemy,
     MGEnemyPool,
     MGMoney,
+    MGSpawn,
     UI = 3000,
     UIRoot,
     UIRootLoading,
