@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 1737506934}
   - component: {fileID: 1737506933}
   m_Layer: 0
-  m_Name: TimeScaleManager
+  m_Name: MGTimeScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

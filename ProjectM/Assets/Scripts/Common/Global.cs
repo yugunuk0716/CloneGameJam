@@ -22,11 +22,13 @@ public enum ePrefabs
     MANAGERS = 2000,
     MGPool,
     MGGame,
+    MGTimeScale,
     UI = 3000,
     UIRoot,
     UIRootLoading,
     UIRootTitle,
     UIRootGame,
+    UITimeScale,
 }
 
 public enum eSceneName
