@@ -91,9 +91,9 @@ public class CONEntity : MonoBehaviour
 
     public virtual void LateUpdate()
     {
-        float nextYpos = myTrm.position.x + myVelocity.x * Time.deltaTime;
+        float nextXpos = myTrm.position.x + myVelocity.x * Time.deltaTime * MGTimeScale.Instance.TimeScale;
 
-        myTrm.position = new Vector3(myTrm.position.x + myVelocity.x * Time.deltaTime, nextYpos, myTrm.position.z);
+        myTrm.position = new Vector3(nextXpos, myTrm.position.y, myTrm.position.z);
     }
     public virtual void Attack()
     {

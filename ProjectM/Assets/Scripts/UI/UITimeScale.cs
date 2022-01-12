@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UITimeScale : MonoBehaviour
 {
+    public ePrefabs ePrefabs;
     private Button btn;
     private Text text;
 
