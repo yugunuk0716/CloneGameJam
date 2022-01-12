@@ -44,6 +44,8 @@ public class MGWave : MonoSingleton<MGWave>
     public bool IsSpawning { get; private set; } = false;
     public bool StageCleared { get; private set; } = false;
 
+    private Transform spawnPos;
+
     public Difficulty difficulty = Difficulty.NORMAL; // 아직은 적용 안함
 
     /// <summary>
@@ -85,6 +87,11 @@ public class MGWave : MonoSingleton<MGWave>
             // IsWaveFinished = true;
         };
 
+    }
+
+    private void Start()
+    {
+        spawnPos = GameObject.Find("SpawnPoint").transform;
     }
 
     public bool FirstWave()
@@ -161,7 +168,8 @@ public class MGWave : MonoSingleton<MGWave>
         for (int i = 0; i < spawnData.spawnList.Count; ++i)
         {
             yield return wait;
-            MGEnemyPool.Instance.Spawn(spawnData.spawnList[i]);
+            // MGEnemyPool.Instance.Spawn(spawnData.spawnList[i]);
+            MGGame.Instance.SpawEnemy(spawnPos.position, EnemyType.NORMAL);
         }
 
         IsSpawning = false;
