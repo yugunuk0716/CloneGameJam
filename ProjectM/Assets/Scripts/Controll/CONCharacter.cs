@@ -55,7 +55,7 @@ public class CONCharacter : CONEntity
         {
             timer = 0;
             print("공격!");
-
+            OnAttack();
         }
         else
         {
@@ -64,6 +64,8 @@ public class CONCharacter : CONEntity
         base.Attack();
     }
 
-
-
+    /// <summary>
+    /// 공격 시 호출됨
+    /// </summary>
+    public virtual void OnAttack() { }
 }
