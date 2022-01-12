@@ -99,6 +99,14 @@ public class MGWave : MonoSingleton<MGWave>
         return (waveIndex == 0 && midWaveIndex == 0);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(0))
+        {
+            StartNewWave();
+        }
+    }
+
     #region 웨이브
     /// <summary>
     /// 웨이브를 시작합니다.
